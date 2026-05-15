@@ -1,29 +1,13 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import mindmap from "@/assets/business-growth-mindmap.png";
+import mindmap from "@/assets/hero-mindmap.jpg";
+import webdev from "@/assets/hero-webdev.jpg";
+import cloud from "@/assets/hero-cloud.jpg";
 
-const webDevSkills = [
-  "React", "Next.js", "TypeScript", "Node.js", "API Design",
-  "Microservices", "GraphQL", "PostgreSQL", "MongoDB", "Tailwind CSS",
-  "Web Performance", "Responsive UI", "Authentication", "Stripe Payments", "Real-time Apps",
-];
-
-const cloudSkills = [
-  "Kubernetes", "Terraform", "AWS", "Docker", "Containerization",
-  "Orchestration", "Amazon EC2", "CI/CD", "Cloud Migration", "Cloud Architecture",
-  "Infrastructure as Code", "Deployment Automation", "DevSecOps", "SOC 2", "GDPR", "HIPAA",
-  "Penetration Testing", "Ansible", "System Administration", "Virtual Desktop Infrastructure",
-  "Prometheus", "Grafana", "Datadog", "GitOps", "Flux",
-];
-
-type Slide =
-  | { kind: "image"; image: string; alt: string }
-  | { kind: "chalk"; title: string; bubbles: string[] };
-
-const slides: Slide[] = [
-  { kind: "image", image: mindmap, alt: "Business growth mindmap by nexumfocus" },
-  { kind: "chalk", title: "Advanced Web & Application Development", bubbles: webDevSkills },
-  { kind: "chalk", title: "Advanced Cloud Architectures", bubbles: cloudSkills },
+const slides = [
+  { image: mindmap, alt: "nexumfocus business growth mindmap: strategy, marketing, ecommerce, cloud, web, analytics" },
+  { image: webdev, alt: "Advanced web and application development — React, Next.js, Node, APIs" },
+  { image: cloud, alt: "Advanced cloud architectures — Kubernetes, AWS, security and observability" },
 ];
 
 export function HeroSlider() {
@@ -45,20 +29,15 @@ export function HeroSlider() {
             className={`absolute inset-0 transition-opacity duration-700 ${idx === i ? "opacity-100 z-10" : "opacity-0 z-0"}`}
             aria-hidden={idx !== i}
           >
-            {slide.kind === "image" ? (
-              <img
-                src={slide.image}
-                alt={slide.alt}
-                className="w-full h-full object-cover"
-                loading={idx === 0 ? "eager" : "lazy"}
-              />
-            ) : (
-              <ChalkboardBubbles bubbles={slide.bubbles} title={slide.title} />
-            )}
+            <img
+              src={slide.image}
+              alt={slide.alt}
+              className="w-full h-full object-cover"
+              loading={idx === 0 ? "eager" : "lazy"}
+            />
           </div>
         ))}
 
-        {/* Controls */}
         <button
           onClick={prev}
           aria-label="Previous slide"
@@ -74,7 +53,6 @@ export function HeroSlider() {
           <ChevronRight className="size-5" />
         </button>
 
-        {/* Dots */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
           {slides.map((_, idx) => (
             <button
@@ -87,28 +65,5 @@ export function HeroSlider() {
         </div>
       </div>
     </section>
-  );
-}
-
-function ChalkboardBubbles({ bubbles, title }: { bubbles: string[]; title: string }) {
-  return (
-    <div className="chalkboard w-full h-full p-6 md:p-12 relative overflow-hidden">
-      <div className="absolute top-6 left-8 md:top-10 md:left-16 chalk-text text-3xl md:text-5xl opacity-90 max-w-2xl leading-tight">
-        {title}
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center p-8 pt-28 md:pt-40">
-        <div className="flex flex-wrap gap-3 md:gap-4 justify-center items-center max-w-6xl">
-          {bubbles.map((b, idx) => (
-            <span
-              key={b}
-              className="bubble bubble-drift"
-              style={{ animationDelay: `${(idx % 6) * 0.4}s`, fontSize: b.length > 18 ? "1rem" : "1.2rem" }}
-            >
-              {b}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
   );
 }

@@ -4,8 +4,8 @@ import { HeroSlider } from "@/components/HeroSlider";
 import { ClientsMarquee } from "@/components/ClientsMarquee";
 import { Button } from "@/components/ui/button";
 import { useQuote } from "@/components/QuoteDialog";
-import { Cloud, Code2, Shield, GitBranch, Activity, Boxes, ArrowRight, ShoppingBag, Megaphone, TrendingUp } from "lucide-react";
-import strategyIllustration from "@/assets/strategy-illustration.png";
+import { ArrowRight, TrendingUp, Target, Server, LineChart } from "lucide-react";
+import strategyIllustration from "@/assets/growth-graph.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,14 +18,24 @@ export const Route = createFileRoute("/")({
 });
 
 const pillars = [
-  { icon: ShoppingBag, title: "Ecommerce Strategy", text: "Store architecture, conversion optimization, and growth playbooks for Shopify, WooCommerce and custom stacks." },
-  { icon: Megaphone, title: "Marketing & Promotion", text: "SEO, paid social, performance ads and content systems that turn traffic into repeat revenue." },
-  { icon: Cloud, title: "Cloud Architecture", text: "AWS, Amazon EC2, multi-region deployments and Cloud Migration done right." },
-  { icon: Boxes, title: "Containerization", text: "Docker and Kubernetes orchestration that scales with your traffic." },
-  { icon: Code2, title: "Web & App Development", text: "Modern stacks — React, Next.js, Node — designed for performance and conversion." },
-  { icon: GitBranch, title: "CI/CD & GitOps", text: "Deployment Automation with Flux and modern GitOps workflows." },
-  { icon: Shield, title: "DevSecOps", text: "Cloud Security aligned to SOC 2, GDPR, HIPAA — including penetration testing." },
-  { icon: Activity, title: "Monitoring & Logging", text: "Prometheus, Grafana and Datadog for real-time observability." },
+  {
+    icon: Target,
+    n: "01",
+    title: "Business growth planning",
+    text: "We start with your numbers, your buyer and your funnel — then design a quarter-by-quarter growth roadmap covering positioning, ecommerce strategy, marketing channels and conversion plays you can actually execute.",
+  },
+  {
+    icon: Server,
+    n: "02",
+    title: "Technology & architecture to guarantee that growth",
+    text: "Modern web & application development, cloud architecture on AWS, Kubernetes orchestration, CI/CD and DevSecOps — engineered so the platform scales with demand instead of breaking under it.",
+  },
+  {
+    icon: LineChart,
+    n: "03",
+    title: "Monitoring growth for better decisions",
+    text: "Real-time observability and revenue analytics — Prometheus, Grafana, Datadog and product dashboards — so every decision is backed by data on what's actually moving the business forward.",
+  },
 ];
 
 const philosophyPoints = [
@@ -107,7 +117,7 @@ function Home() {
               <div className="absolute -bottom-10 -left-10 size-40 rounded-full bg-primary/10 blur-3xl" />
               <img
                 src={strategyIllustration}
-                alt="Business promotion strategy: targeting, ideas, and measurable growth at nexumfocus"
+                alt="Quarter-over-quarter business growth chart at nexumfocus"
                 className="relative w-full h-auto max-w-md"
                 width={1024}
                 height={1024}
@@ -125,14 +135,15 @@ function Home() {
             <span className="text-xs font-semibold tracking-widest uppercase text-primary">Capabilities</span>
             <h2 className="text-3xl md:text-4xl font-display mt-3">Strategy + engineering. One reliable platform.</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {pillars.map((p) => (
-              <div key={p.title} className="group bg-card border border-border rounded-xl p-6 hover:border-primary hover:-translate-y-1 transition-all">
-                <div className="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <p.icon className="size-6" />
+              <div key={p.title} className="group bg-card border border-border rounded-xl p-8 hover:border-primary hover:-translate-y-1 transition-all relative">
+                <div className="absolute top-6 right-6 text-xs font-mono text-primary/70">{p.n}</div>
+                <div className="size-14 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <p.icon className="size-7" />
                 </div>
-                <h3 className="text-xl mb-2">{p.title}</h3>
-                <p className="text-sm text-muted-foreground">{p.text}</p>
+                <h3 className="text-xl mb-3 leading-snug">{p.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{p.text}</p>
               </div>
             ))}
           </div>
