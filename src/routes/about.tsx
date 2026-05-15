@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Button } from "@/components/ui/button";
 import { Target, Compass, Rocket, Users } from "lucide-react";
+import mindmap from "@/assets/business-growth-mindmap.png";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -54,7 +55,7 @@ function About() {
             <Button asChild size="lg"><Link to="/services">See full service list</Link></Button>
           </div>
           <div className="rounded-2xl overflow-hidden border border-border shadow-xl bg-card">
-            <img src="/src/assets/business-growth-mindmap.png" alt="Business growth mindmap covering research, website, SEO, software development, operations and sales"
+            <img src={mindmap} alt="Business growth mindmap covering research, website, SEO, software development, operations and sales"
               className="w-full h-auto" />
           </div>
         </div>
