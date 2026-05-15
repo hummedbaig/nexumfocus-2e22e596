@@ -4,8 +4,8 @@ import { HeroSlider } from "@/components/HeroSlider";
 import { ClientsMarquee } from "@/components/ClientsMarquee";
 import { Button } from "@/components/ui/button";
 import { useQuote } from "@/components/QuoteDialog";
-import { Cloud, Code2, Shield, GitBranch, Activity, Boxes, ArrowRight, ShoppingBag, Megaphone, TrendingUp } from "lucide-react";
-import strategyIllustration from "@/assets/strategy-illustration.png";
+import { ArrowRight, TrendingUp, Target, Server, LineChart } from "lucide-react";
+import strategyIllustration from "@/assets/growth-graph.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,14 +18,24 @@ export const Route = createFileRoute("/")({
 });
 
 const pillars = [
-  { icon: ShoppingBag, title: "Ecommerce Strategy", text: "Store architecture, conversion optimization, and growth playbooks for Shopify, WooCommerce and custom stacks." },
-  { icon: Megaphone, title: "Marketing & Promotion", text: "SEO, paid social, performance ads and content systems that turn traffic into repeat revenue." },
-  { icon: Cloud, title: "Cloud Architecture", text: "AWS, Amazon EC2, multi-region deployments and Cloud Migration done right." },
-  { icon: Boxes, title: "Containerization", text: "Docker and Kubernetes orchestration that scales with your traffic." },
-  { icon: Code2, title: "Web & App Development", text: "Modern stacks — React, Next.js, Node — designed for performance and conversion." },
-  { icon: GitBranch, title: "CI/CD & GitOps", text: "Deployment Automation with Flux and modern GitOps workflows." },
-  { icon: Shield, title: "DevSecOps", text: "Cloud Security aligned to SOC 2, GDPR, HIPAA — including penetration testing." },
-  { icon: Activity, title: "Monitoring & Logging", text: "Prometheus, Grafana and Datadog for real-time observability." },
+  {
+    icon: Target,
+    n: "01",
+    title: "Business growth planning",
+    text: "We start with your numbers, your buyer and your funnel — then design a quarter-by-quarter growth roadmap covering positioning, ecommerce strategy, marketing channels and conversion plays you can actually execute.",
+  },
+  {
+    icon: Server,
+    n: "02",
+    title: "Technology & architecture to guarantee that growth",
+    text: "Modern web & application development, cloud architecture on AWS, Kubernetes orchestration, CI/CD and DevSecOps — engineered so the platform scales with demand instead of breaking under it.",
+  },
+  {
+    icon: LineChart,
+    n: "03",
+    title: "Monitoring growth for better decisions",
+    text: "Real-time observability and revenue analytics — Prometheus, Grafana, Datadog and product dashboards — so every decision is backed by data on what's actually moving the business forward.",
+  },
 ];
 
 const philosophyPoints = [
