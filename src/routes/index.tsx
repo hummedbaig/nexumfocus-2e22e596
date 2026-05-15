@@ -117,7 +117,7 @@ function Home() {
               <div className="absolute -bottom-10 -left-10 size-40 rounded-full bg-primary/10 blur-3xl" />
               <img
                 src={strategyIllustration}
-                alt="Business promotion strategy: targeting, ideas, and measurable growth at nexumfocus"
+                alt="Quarter-over-quarter business growth chart at nexumfocus"
                 className="relative w-full h-auto max-w-md"
                 width={1024}
                 height={1024}
