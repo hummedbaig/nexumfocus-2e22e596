@@ -1,27 +1,38 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { HeroSlider } from "@/components/HeroSlider";
+import { ClientsMarquee } from "@/components/ClientsMarquee";
 import { Button } from "@/components/ui/button";
 import { useQuote } from "@/components/QuoteDialog";
-import { Cloud, Code2, Shield, GitBranch, Activity, Boxes, ArrowRight } from "lucide-react";
+import { Cloud, Code2, Shield, GitBranch, Activity, Boxes, ArrowRight, ShoppingBag, Megaphone, TrendingUp } from "lucide-react";
+import strategyIllustration from "@/assets/strategy-illustration.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "nexumfocus — Cloud, DevOps & Web Development" },
-      { name: "description", content: "Advanced cloud architectures, web & application development, and DevOps engineered to power your business growth." },
+      { title: "nexumfocus — Ecommerce Strategy, Cloud & Web Development" },
+      { name: "description", content: "Ecommerce strategy, cloud architectures, and web & application development engineered to power business growth." },
     ],
   }),
   component: Home,
 });
 
 const pillars = [
+  { icon: ShoppingBag, title: "Ecommerce Strategy", text: "Store architecture, conversion optimization, and growth playbooks for Shopify, WooCommerce and custom stacks." },
+  { icon: Megaphone, title: "Marketing & Promotion", text: "SEO, paid social, performance ads and content systems that turn traffic into repeat revenue." },
   { icon: Cloud, title: "Cloud Architecture", text: "AWS, Amazon EC2, multi-region deployments and Cloud Migration done right." },
   { icon: Boxes, title: "Containerization", text: "Docker and Kubernetes orchestration that scales with your traffic." },
-  { icon: Code2, title: "Infrastructure as Code", text: "Terraform and Ansible to keep environments reproducible and auditable." },
+  { icon: Code2, title: "Web & App Development", text: "Modern stacks — React, Next.js, Node — designed for performance and conversion." },
   { icon: GitBranch, title: "CI/CD & GitOps", text: "Deployment Automation with Flux and modern GitOps workflows." },
   { icon: Shield, title: "DevSecOps", text: "Cloud Security aligned to SOC 2, GDPR, HIPAA — including penetration testing." },
   { icon: Activity, title: "Monitoring & Logging", text: "Prometheus, Grafana and Datadog for real-time observability." },
+];
+
+const philosophyPoints = [
+  { n: "01", title: "Listen, then map", text: "Every brand has a unique buyer. We map your funnel before touching a single ad or line of code." },
+  { n: "02", title: "Compound, don't chase", text: "We build systems that compound — SEO, owned content, retention loops — not one-off spikes." },
+  { n: "03", title: "Measure what matters", text: "Revenue per visitor, contribution margin, LTV. Vanity metrics get archived." },
+  { n: "04", title: "Engineer for trust", text: "Fast, secure, accessible storefronts — because trust is the real conversion lever." },
 ];
 
 function Home() {
@@ -36,22 +47,72 @@ function Home() {
           <div className="md:col-span-1">
             <span className="text-xs font-semibold tracking-widest uppercase text-primary">What we do</span>
             <h2 className="text-3xl md:text-5xl font-display mt-3 leading-tight">
-              Engineering that moves <span className="text-primary">business forward</span>.
+              Engineering & strategy that move <span className="text-primary">business forward</span>.
             </h2>
           </div>
           <div className="md:col-span-2 space-y-4 text-lg text-muted-foreground">
             <p>
-              nexumfocus partners with ambitious teams to design Cloud Architecture, build modern
-              Web & Application platforms, and operationalize DevSecOps. From Kubernetes orchestration
-              to Infrastructure as Code with Terraform, we deliver resilient systems that just work.
+              nexumfocus is an ecommerce strategy and engineering partner. We design Cloud Architecture,
+              build modern Web & Application platforms, and run the marketing systems that turn stores
+              into category leaders.
             </p>
             <p>
-              We treat Cloud Migration, CI/CD, and Monitoring & Logging as one connected discipline —
-              so your engineers ship faster, your security holds up, and your customers feel the difference.
+              From Kubernetes orchestration and Infrastructure as Code with Terraform to SEO, paid media
+              and conversion optimization — one team, one accountable plan, real revenue outcomes.
             </p>
             <div className="flex flex-wrap gap-3 pt-4">
               <Button size="lg" onClick={open}>Get a Quote <ArrowRight className="size-4" /></Button>
               <Button asChild variant="outline" size="lg"><Link to="/services">Explore Services</Link></Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Notable clients marquee */}
+      <ClientsMarquee />
+
+      {/* Business promotion philosophy */}
+      <section className="container mx-auto px-4 py-24">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="order-2 md:order-1">
+            <span className="text-xs font-semibold tracking-widest uppercase text-primary">Our philosophy</span>
+            <h2 className="text-3xl md:text-5xl font-display mt-3 leading-[1.05]">
+              Business promotion as a <span className="text-primary">system</span>, not a campaign.
+            </h2>
+            <p className="text-lg text-muted-foreground mt-6">
+              At nexumfocus we treat growth as engineering. Brand, product, storefront, ads, SEO, retention
+              — connected as one feedback loop. We diagnose where your funnel leaks revenue, then fix the
+              cause, not the symptom. The result is a brand that compounds traffic, conversion and trust
+              every quarter — not a sugar-rush of ad spend.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-5 mt-8">
+              {philosophyPoints.map((p) => (
+                <div key={p.n} className="border-l-2 border-primary pl-4">
+                  <div className="text-xs font-mono text-primary">{p.n}</div>
+                  <h3 className="text-lg mt-1">{p.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-1">{p.text}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button size="lg" onClick={open}>
+                <TrendingUp className="size-4" /> Get a growth plan
+              </Button>
+              <Button asChild variant="outline" size="lg"><Link to="/services">See ecommerce services</Link></Button>
+            </div>
+          </div>
+          <div className="order-1 md:order-2">
+            <div className="relative aspect-square rounded-3xl bg-gradient-to-br from-accent to-muted/40 border border-border p-8 md:p-12 flex items-center justify-center overflow-hidden">
+              <div className="absolute -top-10 -right-10 size-40 rounded-full bg-primary/10 blur-3xl" />
+              <div className="absolute -bottom-10 -left-10 size-40 rounded-full bg-primary/10 blur-3xl" />
+              <img
+                src={strategyIllustration}
+                alt="Business promotion strategy: targeting, ideas, and measurable growth at nexumfocus"
+                className="relative w-full h-auto max-w-md"
+                width={1024}
+                height={1024}
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
@@ -62,9 +123,9 @@ function Home() {
         <div className="container mx-auto px-4 py-20">
           <div className="max-w-2xl mb-14">
             <span className="text-xs font-semibold tracking-widest uppercase text-primary">Capabilities</span>
-            <h2 className="text-3xl md:text-4xl font-display mt-3">Six pillars. One reliable platform.</h2>
+            <h2 className="text-3xl md:text-4xl font-display mt-3">Strategy + engineering. One reliable platform.</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {pillars.map((p) => (
               <div key={p.title} className="group bg-card border border-border rounded-xl p-6 hover:border-primary hover:-translate-y-1 transition-all">
                 <div className="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
