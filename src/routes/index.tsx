@@ -135,14 +135,15 @@ function Home() {
             <span className="text-xs font-semibold tracking-widest uppercase text-primary">Capabilities</span>
             <h2 className="text-3xl md:text-4xl font-display mt-3">Strategy + engineering. One reliable platform.</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {pillars.map((p) => (
-              <div key={p.title} className="group bg-card border border-border rounded-xl p-6 hover:border-primary hover:-translate-y-1 transition-all">
-                <div className="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <p.icon className="size-6" />
+              <div key={p.title} className="group bg-card border border-border rounded-xl p-8 hover:border-primary hover:-translate-y-1 transition-all relative">
+                <div className="absolute top-6 right-6 text-xs font-mono text-primary/70">{p.n}</div>
+                <div className="size-14 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <p.icon className="size-7" />
                 </div>
-                <h3 className="text-xl mb-2">{p.title}</h3>
-                <p className="text-sm text-muted-foreground">{p.text}</p>
+                <h3 className="text-xl mb-3 leading-snug">{p.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{p.text}</p>
               </div>
             ))}
           </div>
