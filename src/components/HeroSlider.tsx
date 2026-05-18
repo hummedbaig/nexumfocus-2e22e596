@@ -5,9 +5,9 @@ import webdev from "@/assets/hero-webdev.jpg";
 import cloud from "@/assets/hero-cloud.jpg";
 
 const slides = [
-  { image: mindmap, alt: "nexumfocus business growth mindmap: strategy, marketing, ecommerce, cloud, web, analytics" },
-  { image: webdev, alt: "Advanced web and application development — React, Next.js, Node, APIs" },
-  { image: cloud, alt: "Advanced cloud architectures — Kubernetes, AWS, security and observability" },
+  { image: mindmap, alt: "Business growth mind map: strategy, marketing, ecommerce, cloud, analytics, web" },
+  { image: webdev, alt: "Chalkboard sketch of application development — browser, frontend, API, backend, database" },
+  { image: cloud, alt: "Chalkboard sketch of cloud technologies — microservices, Kubernetes, Docker, CI/CD" },
 ];
 
 export function HeroSlider() {
