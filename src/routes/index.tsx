@@ -129,23 +129,43 @@ function Home() {
       </section>
 
       {/* Pillars */}
-      <section className="bg-muted/40 border-y border-border">
-        <div className="container mx-auto px-4 py-20">
-          <div className="max-w-2xl mb-14">
+      <section className="bg-foreground text-background border-y border-border relative overflow-hidden">
+        <div className="absolute -top-32 -right-32 size-96 rounded-full bg-primary/20 blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 size-96 rounded-full bg-primary/10 blur-3xl" />
+        <div className="container mx-auto px-4 py-24 relative">
+          <div className="max-w-3xl mb-16">
             <span className="text-xs font-semibold tracking-widest uppercase text-primary">Capabilities</span>
-            <h2 className="text-3xl md:text-4xl font-display mt-3">Strategy + engineering. One reliable platform.</h2>
+            <h2 className="text-3xl md:text-5xl font-display mt-3 leading-[1.05]">
+              Strategy + engineering. <span className="text-primary">One reliable platform.</span>
+            </h2>
+            <p className="text-background/70 mt-5 text-base md:text-lg max-w-2xl">
+              Three connected disciplines, run by one accountable team — so growth, the technology that
+              powers it, and the data that proves it stay in lockstep.
+            </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {pillars.map((p) => (
-              <div key={p.title} className="group bg-card border border-border rounded-xl p-8 hover:border-primary hover:-translate-y-1 transition-all relative">
-                <div className="absolute top-6 right-6 text-xs font-mono text-primary/70">{p.n}</div>
-                <div className="size-14 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <p.icon className="size-7" />
+
+          <div className="relative">
+            {/* connecting line */}
+            <div className="hidden md:block absolute top-7 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+            <div className="grid md:grid-cols-3 gap-10 md:gap-8 relative">
+              {pillars.map((p, idx) => (
+                <div key={p.title} className="relative">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="size-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0 ring-8 ring-foreground">
+                      <p.icon className="size-6" />
+                    </div>
+                    <div className="text-xs font-mono tracking-widest text-primary">PILLAR {p.n}</div>
+                  </div>
+                  <h3 className="text-2xl md:text-[1.65rem] font-display leading-tight mb-4 text-background">
+                    {p.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-background/70 leading-relaxed">{p.text}</p>
+                  {idx < pillars.length - 1 && (
+                    <div className="hidden md:block absolute -right-4 top-7 size-2 rounded-full bg-primary" />
+                  )}
                 </div>
-                <h3 className="text-xl mb-3 leading-snug">{p.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{p.text}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
