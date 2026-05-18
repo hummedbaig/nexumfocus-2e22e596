@@ -53,14 +53,14 @@ function Home() {
 
       {/* Intro band */}
       <section className="container mx-auto px-4 py-20">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          <div className="lg:col-span-5">
+        <div className="grid md:grid-cols-12 gap-8 md:gap-10 lg:gap-16 items-start">
+          <div className="md:col-span-5">
             <span className="text-xs font-semibold tracking-widest uppercase text-primary">What we do</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display mt-3 leading-[1.1] text-balance">
+            <h2 className="text-[1.75rem] md:text-[2rem] lg:text-5xl font-display mt-3 leading-[1.1] text-balance">
               Engineering & strategy that move <span className="text-primary">business forward</span>.
             </h2>
           </div>
-          <div className="lg:col-span-7 space-y-4 text-base md:text-lg text-muted-foreground">
+          <div className="md:col-span-7 space-y-4 text-base md:text-[1.0625rem] lg:text-lg text-muted-foreground">
             <p>
               nexumfocus is an ecommerce strategy and engineering partner. We design Cloud Architecture,
               build modern Web & Application platforms, and run the marketing systems that turn stores
