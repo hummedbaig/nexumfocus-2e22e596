@@ -20,7 +20,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background/90 backdrop-blur">
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <Link to="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
-          <img src={logo} alt="nexumfocus" className="h-10 md:h-12 w-auto mix-blend-multiply dark:mix-blend-screen" />
+          <img src={logo} alt="nexumfocus" className="h-10 md:h-12 w-auto" />
         </Link>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
