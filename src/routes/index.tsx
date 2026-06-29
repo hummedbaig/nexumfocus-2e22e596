@@ -1,11 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import { HeroSlider } from "@/components/HeroSlider";
+import { ClientsMarquee } from "@/components/ClientsMarquee";
 import { ClientsMarquee } from "@/components/ClientsMarquee";
 import { Button } from "@/components/ui/button";
 import { useQuote } from "@/components/QuoteDialog";
 import { ArrowRight, TrendingUp, Target, Server, LineChart } from "lucide-react";
 import strategyIllustration from "@/assets/growth-graph.jpg";
+import heroBg from "@/assets/hero-build-big-bg.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -49,7 +50,34 @@ function Home() {
   const { open } = useQuote();
   return (
     <SiteLayout>
-      <HeroSlider />
+      {/* Hero */}
+      <section className="relative w-full h-[70vh] min-h-[480px] md:h-[80vh] md:min-h-[600px] overflow-hidden border-b border-border">
+        <img
+          src={heroBg}
+          alt="Abstract business growth illustration with upward arrow and city skyline"
+          className="absolute inset-0 w-full h-full object-cover"
+          width={1600}
+          height={900}
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/40 to-transparent" />
+        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center">
+          <div className="max-w-2xl">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight text-primary-foreground">
+              Build <span className="text-primary">Big!</span>
+            </h1>
+            <p className="mt-6 text-lg md:text-2xl text-primary-foreground/90 max-w-xl">
+              You got a business and you want to make big? We are here for you.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button size="lg" onClick={open}>Get a Quote <ArrowRight className="size-4" /></Button>
+              <Button asChild variant="outline" size="lg" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-foreground">
+                <Link to="/services">Explore Services</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Intro band */}
       <section className="container mx-auto px-4 py-20">
