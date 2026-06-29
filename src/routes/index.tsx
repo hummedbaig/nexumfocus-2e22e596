@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { ClientsMarquee } from "@/components/ClientsMarquee";
-import { ClientsMarquee } from "@/components/ClientsMarquee";
 import { Button } from "@/components/ui/button";
 import { useQuote } from "@/components/QuoteDialog";
 import { ArrowRight, TrendingUp, Target, Server, LineChart } from "lucide-react";
