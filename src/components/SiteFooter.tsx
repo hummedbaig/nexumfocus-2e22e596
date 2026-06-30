@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="bg-foreground text-background mt-24">
       <div className="container mx-auto px-4 py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <div className="bg-background inline-block rounded-md p-3 mb-4">
+          <div className="mb-4">
             <img src={logo} alt="nexumfocus" className="h-10 w-auto" />
           </div>
           <p className="text-sm text-background/70 max-w-md">
