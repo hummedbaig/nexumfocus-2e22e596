@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuote } from "./QuoteDialog";
-import logo from "@/assets/nexum-logo.png";
+import logo from "@/assets/nexum-logo.jpg";
 
 const links = [
   { to: "/", label: "Home" },
