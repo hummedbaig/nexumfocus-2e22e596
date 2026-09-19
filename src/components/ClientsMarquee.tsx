@@ -1,7 +1,7 @@
-import edifier from "@/assets/client-edifier.png";
-import neoza from "@/assets/client-neoza.png";
-import habibi from "@/assets/client-3dhabibi.png";
-import halalboys from "@/assets/client-halalboys.png";
+import edifier from "@/assets/client-edifier.webp";
+import neoza from "@/assets/client-neoza.webp";
+import habibi from "@/assets/client-3dhabibi.webp";
+import halalboys from "@/assets/client-halalboys.webp";
 
 const clients = [
   { name: "Edifier Pakistan", logo: edifier, url: "https://edifier.pk" },

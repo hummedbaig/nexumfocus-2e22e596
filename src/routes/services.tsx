@@ -2,10 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Button } from "@/components/ui/button";
 import { useQuote } from "@/components/QuoteDialog";
-import strategyIllustration from "@/assets/strategy-illustration.png";
-import marketingIllustration from "@/assets/marketing-illustration.png";
-import cloudIllustration from "@/assets/cloud-illustration.png";
-import webdevIllustration from "@/assets/webdev-illustration.png";
+import strategyIllustration from "@/assets/strategy-illustration.webp";
+import marketingIllustration from "@/assets/marketing-illustration.webp";
+import cloudIllustration from "@/assets/cloud-illustration.webp";
+import webdevIllustration from "@/assets/webdev-illustration.webp";
 
 export const Route = createFileRoute("/services")({
   head: () => ({

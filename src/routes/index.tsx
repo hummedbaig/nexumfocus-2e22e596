@@ -4,8 +4,8 @@ import { ClientsMarquee } from "@/components/ClientsMarquee";
 import { Button } from "@/components/ui/button";
 import { useQuote } from "@/components/QuoteDialog";
 import { ArrowRight, TrendingUp, Target, Server, LineChart } from "lucide-react";
-import strategyIllustration from "@/assets/growth-graph.jpg";
-import heroBg from "@/assets/hero-build-big-bg.jpg";
+import strategyIllustration from "@/assets/growth-graph.webp";
+import heroBg from "@/assets/hero-build-big-bg.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({

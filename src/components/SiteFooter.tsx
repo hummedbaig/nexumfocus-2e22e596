@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, Mail, MapPin } from "lucide-react";
-import logo from "@/assets/nexum-logo.jpg";
+import logo from "@/assets/nexum-logo.webp";
 
 export function SiteFooter() {
   return (

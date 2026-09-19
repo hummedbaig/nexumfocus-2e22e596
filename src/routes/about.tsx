@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Button } from "@/components/ui/button";
 import { Target, Compass, Rocket, Users } from "lucide-react";
-import mindmap from "@/assets/business-growth-mindmap.png";
+import mindmap from "@/assets/business-growth-mindmap.webp";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
