@@ -1,183 +1,184 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Button } from "@/components/ui/button";
 import { useQuote } from "@/components/QuoteDialog";
-import strategyIllustration from "@/assets/strategy-illustration.webp";
-import marketingIllustration from "@/assets/marketing-illustration.webp";
-import cloudIllustration from "@/assets/cloud-illustration.webp";
-import webdevIllustration from "@/assets/webdev-illustration.webp";
+import {
+  Compass, Wrench, Package, Bot, ShoppingCart, Megaphone, Cloud, Check, ArrowRight,
+  Search, Map, Hammer, BarChart3, FileText, RefreshCw,
+} from "lucide-react";
+import strategyImg from "@/assets/strategy-illustration.webp";
+import marketingImg from "@/assets/marketing-illustration.webp";
+import webdevImg from "@/assets/webdev-illustration.webp";
+import cloudImg from "@/assets/cloud-illustration.webp";
+
+const TITLE = "Services | nexumfocus, growth, technology and consulting partner";
+const DESC = "Consulting, AI & automation, commerce, growth marketing, platforms and cloud. nexumfocus is a growth, technology and consulting partner under one roof.";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — nexumfocus" },
-      { name: "description", content: "Ecommerce strategy, marketing, web & application development, Kubernetes, Terraform, AWS, CI/CD, DevSecOps and monitoring — full-stack growth services." },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
     ],
   }),
   component: Services,
 });
 
-type Group = {
-  title: string;
-  intro: string;
-  skills: string[];
-  illustration?: string;
-};
-
-const featured: Group[] = [
-  {
-    title: "Ecommerce & Business Strategy",
-    intro:
-      "We design the storefront strategy that turns visitors into repeat buyers — funnel mapping, pricing architecture, merchandising, retention, and a roadmap your team can actually execute.",
-    skills: ["Shopify", "WooCommerce", "Headless Commerce", "Funnel Mapping", "Conversion Optimization", "Merchandising", "Pricing Strategy", "Retention & LTV", "Loyalty Programs", "Subscriptions"],
-    illustration: strategyIllustration,
-  },
-  {
-    title: "Marketing & Brand Promotion",
-    intro:
-      "Performance marketing without the bloat. SEO, paid social, Google Ads, email, content systems and analytics — wired together so every dollar is measurable.",
-    skills: ["SEO", "Technical SEO", "Google Ads", "Meta Ads", "TikTok Ads", "Email & SMS", "Content Marketing", "Social Media", "Analytics & GA4", "Influencer Campaigns"],
-    illustration: marketingIllustration,
-  },
-  {
-    title: "Web & Application Development",
-    intro:
-      "High-performance storefronts and custom platforms built on modern stacks. Designed for speed, conversion, and a beautiful experience on every device.",
-    skills: ["React", "Next.js", "TypeScript", "Node.js", "API Design", "Microservices", "GraphQL", "PostgreSQL", "MongoDB", "Tailwind CSS", "Stripe Payments", "Real-time Apps"],
-    illustration: webdevIllustration,
-  },
-  {
-    title: "Cloud & DevOps Infrastructure",
-    intro:
-      "Production-grade infrastructure for stores and SaaS. Kubernetes, Terraform, GitOps and DevSecOps — engineered for scale, security and 24/7 uptime.",
-    skills: ["AWS", "Kubernetes", "Docker", "Terraform", "Ansible", "CI/CD", "GitOps", "Flux", "DevSecOps", "Prometheus", "Grafana", "Datadog", "SOC 2", "GDPR", "HIPAA"],
-    illustration: cloudIllustration,
-  },
+const offerings = [
+  { icon: Compass, title: "Consulting", text: "Growth and AI audits, roadmaps and ongoing advisory.", href: "#consulting" },
+  { icon: Wrench, title: "Services", text: "Hands-on delivery across commerce, marketing, AI and cloud.", href: "#services" },
+  { icon: Package, title: "Products", text: "Tools we build and run, born from real client problems.", href: "#products" },
 ];
 
-const supporting: Group[] = [
-  {
-    title: "Cloud Architecture & Migration",
-    intro: "Cloud Architecture on AWS that's secure, observable and cost-aware — Cloud Migration handled end-to-end.",
-    skills: ["AWS", "Amazon EC2", "Cloud Architecture", "Cloud Migration", "Virtual Desktop Infrastructure"],
-  },
-  {
-    title: "Containers & Orchestration",
-    intro: "Docker and Kubernetes done properly — declarative, reproducible, ready for production traffic.",
-    skills: ["Kubernetes", "Docker", "Containerization", "Orchestration"],
-  },
-  {
-    title: "Infrastructure as Code",
-    intro: "Terraform and Ansible to make every environment reproducible. No more snowflake servers.",
-    skills: ["Terraform", "Ansible", "Infrastructure as Code", "System Administration"],
-  },
-  {
-    title: "CI/CD & GitOps",
-    intro: "Modern Deployment Automation with CI/CD pipelines and GitOps using tools like Flux — the 2026 standard.",
-    skills: ["CI/CD", "Deployment Automation", "GitOps", "Flux"],
-  },
-  {
-    title: "DevSecOps & Compliance",
-    intro: "Cloud Security baked in — SOC 2, GDPR, HIPAA alignment and penetration testing for real-world threats.",
-    skills: ["DevSecOps", "Cloud Security", "SOC 2", "GDPR", "HIPAA", "Penetration Testing"],
-  },
-  {
-    title: "Monitoring & Logging",
-    intro: "Real-time observability with Prometheus, Grafana and Datadog — so issues surface before customers do.",
-    skills: ["Prometheus", "Grafana", "Datadog", "Monitoring & Logging"],
-  },
+const consulting = [
+  { title: "Growth Diagnostic", text: "A 2 to 3 week review of your funnel, channels, store and numbers.", gets: ["Clear report of where revenue leaks", "Prioritized 90-day action plan", "Channel and funnel benchmarks"] },
+  { title: "AI Readiness Assessment", text: "We review your processes and find where AI and automation will save time or money.", gets: ["Use cases ranked by impact and effort", "Quick wins you can start this month", "Cost and savings estimates"] },
+  { title: "Fractional Tech & Growth Lead", text: "Senior guidance on a monthly retainer, without a full-time hire.", gets: ["Weekly strategy sessions", "Vendor and team oversight", "Monthly progress reporting"] },
+  { title: "Digital Transformation Roadmap", text: "A step by step plan to move manual operations onto modern systems.", gets: ["Current process map", "Target systems and architecture", "Phased rollout plan and budget"] },
+];
+
+const practices = [
+  { id: "ai-automation", icon: Bot, img: strategyImg, title: "AI & Automation", promise: "Less manual work, faster decisions and fewer errors.",
+    items: ["AI agents for support, operations and sales", "Workflow automation", "MCP integrations with your business systems", "Chatbots and assistants", "Internal AI tools"] },
+  { id: "commerce", icon: ShoppingCart, img: webdevImg, title: "Commerce", promise: "Stores that load fast, sell more and run themselves.",
+    items: ["Shopify store design and development", "Marketplace integrations (Amazon, eBay, Home Depot)", "Inventory and order sync", "Store speed and conversion optimization"] },
+  { id: "growth-marketing", icon: Megaphone, img: marketingImg, title: "Growth Marketing", promise: "Be found, be chosen and keep customers coming back.",
+    items: ["SEO", "GEO (Generative Engine Optimization): visibility in AI search like ChatGPT and Perplexity", "Paid social and search", "Content and social media management", "Conversion rate optimization"] },
+  { id: "platforms-cloud", icon: Cloud, img: cloudImg, title: "Platforms & Cloud", promise: "Reliable platforms that scale with your demand.",
+    items: ["Custom web and mobile applications", "Laravel and API development", "AWS cloud architecture", "DevOps and CI/CD", "Monitoring and analytics dashboards"],
+    stack: "AWS, Kubernetes, Docker, Terraform, Ansible, Jenkins, GitHub Actions, ArgoCD, Flux, Prometheus, Grafana, Datadog, Laravel, React, Node.js" },
+];
+
+const products = [
+  { icon: FileText, title: "Meeting Notes AI", text: "Turns bilingual (Urdu/English) meetings into clear English notes and action items." },
+  { icon: RefreshCw, title: "Marketplace Inventory Sync", text: "Keeps stock levels in sync across multiple sales channels automatically." },
+];
+
+const steps = [
+  { icon: Search, title: "Discover", text: "We learn your business, numbers and goals." },
+  { icon: Map, title: "Plan", text: "We agree on a clear, prioritized roadmap." },
+  { icon: Hammer, title: "Build", text: "We deliver the technology and marketing." },
+  { icon: BarChart3, title: "Measure & improve", text: "We track results and keep improving." },
 ];
 
 function Services() {
   const { open } = useQuote();
   return (
     <SiteLayout>
-      <section className="container mx-auto px-4 py-20 md:py-28">
-        <div className="max-w-3xl">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary">Services</span>
-          <h1 className="text-4xl md:text-6xl font-display mt-4 leading-[1.05]">
-            Ecommerce strategy, marketing & engineering — <span className="text-primary">end to end</span>.
-          </h1>
-          <p className="text-lg text-muted-foreground mt-6">
-            From Shopify storefronts and SEO to Kubernetes, Terraform-backed Infrastructure as Code, GitOps
-            with Flux and DevSecOps compliance — nexumfocus delivers the full growth stack under one roof.
-          </p>
-        </div>
-      </section>
-
-      {/* Featured services with illustrations */}
-      <section className="container mx-auto px-4 pb-8 space-y-24">
-        {featured.map((g, idx) => {
-          const reverse = idx % 2 === 1;
-          return (
-            <article key={g.title} className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-              <div className={reverse ? "md:order-2" : ""}>
-                <span className="text-sm font-mono text-primary">0{idx + 1}</span>
-                <h2 className="text-3xl md:text-4xl font-display mt-2 leading-tight">{g.title}</h2>
-                <p className="text-muted-foreground text-lg mt-5">{g.intro}</p>
-                <div className="flex flex-wrap gap-2 mt-6">
-                  {g.skills.map((s) => (
-                    <span key={s} className="px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-sm border border-border">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className={reverse ? "md:order-1" : ""}>
-                <div className="relative aspect-square rounded-3xl bg-gradient-to-br from-accent to-muted/40 border border-border p-8 md:p-12 flex items-center justify-center overflow-hidden">
-                  <div className="absolute -top-10 -right-10 size-40 rounded-full bg-primary/10 blur-3xl" />
-                  <div className="absolute -bottom-10 -left-10 size-40 rounded-full bg-primary/10 blur-3xl" />
-                  {g.illustration && (
-                    <img
-                      src={g.illustration}
-                      alt={`${g.title} illustration`}
-                      className="relative w-full h-auto max-w-md"
-                      width={1024}
-                      height={1024}
-                      loading="lazy"
-                    />
-                  )}
-                </div>
-              </div>
-            </article>
-          );
-        })}
-      </section>
-
-      {/* Supporting services list */}
-      <section className="container mx-auto px-4 py-24 mt-12">
-        <div className="max-w-2xl mb-12">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary">Specialist capabilities</span>
-          <h2 className="text-3xl md:text-4xl font-display mt-3">Every layer of the cloud stack.</h2>
-        </div>
-        <div className="space-y-6">
-          {supporting.map((g, idx) => (
-            <article key={g.title}
-              className="grid md:grid-cols-[200px_1fr] gap-6 md:gap-12 border-t border-border pt-8">
-              <div>
-                <span className="text-sm text-muted-foreground font-mono">0{idx + 1}</span>
-                <h3 className="text-2xl font-display mt-2 leading-tight">{g.title}</h3>
-              </div>
-              <div>
-                <p className="text-muted-foreground text-lg">{g.intro}</p>
-                <div className="flex flex-wrap gap-2 mt-5">
-                  {g.skills.map((s) => (
-                    <span key={s} className="px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-sm border border-border">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </article>
+      <section className="container mx-auto px-4 py-20 md:py-24">
+        <span className="text-xs font-semibold tracking-widest uppercase text-primary">Services</span>
+        <h1 className="text-4xl md:text-6xl font-display mt-4 leading-[1.05] max-w-4xl">
+          Everything your business needs to grow, <span className="text-primary">under one roof.</span>
+        </h1>
+        <p className="text-lg text-muted-foreground mt-6 max-w-2xl">
+          We work in three ways: we advise, we build and we create products. Pick what you need today and grow into the rest.
+        </p>
+        <div className="grid md:grid-cols-3 gap-6 mt-12">
+          {offerings.map((o) => (
+            <a key={o.title} href={o.href} className="group rounded-2xl border border-border bg-card p-6 hover:border-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <div className="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center"><o.icon className="size-6" /></div>
+              <h2 className="text-xl font-display mt-4">{o.title}</h2>
+              <p className="text-muted-foreground mt-2">{o.text}</p>
+              <span className="inline-flex items-center gap-1 text-sm text-primary font-semibold mt-4">Learn more <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" /></span>
+            </a>
           ))}
         </div>
       </section>
 
+      <section id="consulting" className="bg-muted/40 border-y border-border scroll-mt-24">
+        <div className="container mx-auto px-4 py-20">
+          <h2 className="text-3xl md:text-5xl font-display">Consulting & Advisory</h2>
+          <p className="text-lg text-muted-foreground mt-4">Not sure where to start? We diagnose first, then recommend.</p>
+          <div className="grid md:grid-cols-2 gap-6 mt-10">
+            {consulting.map((c) => (
+              <div key={c.title} className="rounded-2xl border border-border bg-card p-6">
+                <h3 className="text-xl font-display">{c.title}</h3>
+                <p className="text-muted-foreground mt-2">{c.text}</p>
+                <p className="text-xs font-semibold tracking-widest uppercase text-primary mt-5">What you get</p>
+                <ul className="mt-2 space-y-2">
+                  {c.gets.map((g) => (
+                    <li key={g} className="flex gap-2 text-sm"><Check className="size-4 text-primary mt-0.5 shrink-0" />{g}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="services" className="container mx-auto px-4 py-20 scroll-mt-24">
+        <h2 className="text-3xl md:text-5xl font-display">Delivery Services</h2>
+        <p className="text-lg text-muted-foreground mt-4 max-w-2xl">Four practices, one accountable team.</p>
+        <div className="space-y-16 mt-12">
+          {practices.map((p, i) => (
+            <div key={p.id} id={p.id} className="grid md:grid-cols-2 gap-10 items-center scroll-mt-24">
+              <div className={i % 2 ? "md:order-2" : ""}>
+                <div className="flex items-center gap-3">
+                  <div className="size-12 rounded-lg bg-primary text-primary-foreground flex items-center justify-center"><p.icon className="size-6" /></div>
+                  <h3 className="text-2xl md:text-3xl font-display">{p.title}</h3>
+                </div>
+                <p className="text-lg text-muted-foreground mt-4">{p.promise}</p>
+                <ul className="mt-5 space-y-2">
+                  {p.items.map((it) => (
+                    <li key={it} className="flex gap-2"><Check className="size-5 text-primary mt-0.5 shrink-0" />{it}</li>
+                  ))}
+                </ul>
+                {p.stack && (
+                  <details className="mt-5 text-sm">
+                    <summary className="cursor-pointer font-semibold text-primary rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Tech stack</summary>
+                    <p className="text-muted-foreground mt-2">{p.stack}</p>
+                  </details>
+                )}
+              </div>
+              <div className="rounded-3xl bg-accent/40 border border-border p-6">
+                <img src={p.img} alt={`${p.title} illustration`} className="w-full h-auto rounded-2xl" loading="lazy" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="products" className="bg-foreground text-background scroll-mt-24">
+        <div className="container mx-auto px-4 py-20">
+          <h2 className="text-3xl md:text-5xl font-display">Products</h2>
+          <p className="text-lg text-background/70 mt-4 max-w-2xl">Some problems come up again and again. When they do, we turn the solution into a product.</p>
+          <div className="grid md:grid-cols-2 gap-6 mt-10">
+            {products.map((p) => (
+              <div key={p.title} className="rounded-2xl border border-background/15 p-6">
+                <p.icon className="size-8 text-primary" />
+                <h3 className="text-xl font-display mt-4">{p.title}</h3>
+                <p className="text-background/70 mt-2">{p.text}</p>
+                <Button asChild className="mt-6">
+                  <Link to="/contact" search={{ type: "waitlist" }}>Coming soon, join the waitlist</Link>
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="container mx-auto px-4 py-20">
-        <div className="bg-primary text-primary-foreground rounded-3xl p-10 md:p-14 text-center">
-          <h2 className="text-3xl md:text-4xl font-display max-w-2xl mx-auto">Need a custom scope?</h2>
-          <p className="opacity-90 mt-3 max-w-xl mx-auto">Tell us your goals — we'll map the right services and a clear timeline.</p>
-          <Button size="lg" variant="secondary" className="mt-6" onClick={open}>Get a Quote</Button>
+        <h2 className="text-3xl md:text-4xl font-display">How we work</h2>
+        <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+          {steps.map((s, i) => (
+            <li key={s.title} className="border-l-2 border-primary pl-4">
+              <div className="text-xs font-mono text-primary">0{i + 1}</div>
+              <h3 className="text-lg mt-1 flex items-center gap-2"><s.icon className="size-4 text-primary" />{s.title}</h3>
+              <p className="text-sm text-muted-foreground mt-1">{s.text}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="container mx-auto px-4 pb-24">
+        <div className="bg-foreground text-background rounded-3xl p-10 md:p-16 text-center">
+          <h2 className="text-3xl md:text-5xl font-display">Not sure which service fits? Let's talk.</h2>
+          <div className="mt-8 flex justify-center gap-3 flex-wrap">
+            <Button asChild size="lg"><Link to="/contact" search={{ type: "call" }}>Book a Free 20-min Call</Link></Button>
+            <Button size="lg" variant="outline" onClick={open} className="bg-transparent border-background/30 text-background hover:bg-background hover:text-foreground">Get a Quote</Button>
+          </div>
         </div>
       </section>
     </SiteLayout>
